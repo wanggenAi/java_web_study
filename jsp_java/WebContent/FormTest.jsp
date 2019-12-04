@@ -4,6 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    window.onload = function()
+    {
+        CKEDITOR.replace( 'description');
+    };
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -11,7 +18,10 @@
 		<label>用户名：</label><input type="text" name="userName"/> <br/>
 		<label>密码：</label><input type="password" name="password"/> <br/>
 		<input type="file" name="name"/>
+		<textarea name="description" id="description"/></textarea>
     	<input type="submit" value="提交">
 	</form>
 </body>
+
+
 </html>
