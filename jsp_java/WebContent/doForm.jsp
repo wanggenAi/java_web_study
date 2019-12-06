@@ -1,3 +1,4 @@
+<%@page import="listener.User2"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.UUID"%>
 <%@page import="java.util.Iterator"%>
@@ -26,6 +27,8 @@
 				// 解析request请求中的数据
 				List<FileItem> items = upload.parseRequest(request);
 				Iterator<FileItem> iter = items.iterator();
+				String userName = "";
+				String password = "";
 				while (iter.hasNext()) {
 					FileItem item = iter.next();
 					// 判断元素类型，是否是普通表单
@@ -34,8 +37,10 @@
 						String fieldName = item.getFieldName();
 						if (fieldName.equals("userName")) {
 							out.print("用户名是:" + item.getString("UTF-8") + "<br/>");
+							userName = item.getString("UTF-8");
 						} else if (fieldName.equals("password")) {
 							out.print("密码是:" + item.getString());
+							password = item.getString();
 						}
 					} else { // 文件上传
 						String fileName = item.getName();
@@ -53,6 +58,8 @@
 						}
 					}
 				}
+				User2 user = new User2(1, userName, password, "d5736208@qq.com");
+				session.setAttribute("user", user);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

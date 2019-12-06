@@ -5,11 +5,11 @@ import java.lang.reflect.Method;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.ResultSetMetaData;
 
 import entity.Comment;
 import entity.News;
@@ -48,7 +48,7 @@ public class ProcedureDemo {
 			List<T> list = new ArrayList<>();
 			
 			rs = cs.getResultSet();
-			ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+			ResultSetMetaData rsmd = rs.getMetaData();
 			// 获取数据总列数
 			int count = rsmd.getColumnCount();
 			while (rs.next()) {

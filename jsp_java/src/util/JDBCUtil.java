@@ -11,18 +11,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class JDBCUtil {
-	private static Connection conn = null;
-	private static DataSource ds = null;
-	static {
-		try {
-			// 初始化上下文
-			Context cxt = new InitialContext();
-			// 获取与逻辑名关联的数据源对象
-			ds = (DataSource) cxt.lookup("java:comp/env/jdbc/news");
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
-	}
+	public static Connection conn = null;
+	public static DataSource ds = null;
 
 	public static Connection getConn() {
 		try {
