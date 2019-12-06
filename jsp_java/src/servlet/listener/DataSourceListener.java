@@ -1,6 +1,5 @@
 package servlet.listener;
 
-import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
